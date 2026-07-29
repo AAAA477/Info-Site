@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PIWC Edmonton North Canada — Forms</title>
+<link rel="icon" href="logo.png">
+
+<script>
+/* ==========================================================================
+   EDIT THIS SECTION ONLY.  Everything below it can be left alone.
+
+   • To change a button:  edit the text inside the quotes.
+   • To add a button:     copy a whole line, paste it below, put a comma at
+                          the end of the line above. Last line = no comma.
+   • To reorder:          move a line up or down.
+   • To highlight one:    change its  featured: false   to   featured: true
+                          (it jumps to the top with a yellow edge + NEW tag).
+   • To remove one:       delete its line.
+
+   Save the file and refresh the page to see your changes.
+   ========================================================================== */
+
+const CHURCH_NAME = "PIWC Edmonton North Canada";
+const INTRO_TEXT  = "Tap a form below to get started.";
+const FOOTER_TEXT = "Need help? Ask an usher.";
+
+const LINKS = [
+  { label: "Make a Capital Project Commitment", url: "https://bit.ly/44QvAHs", featured: false },
+  { label: "Update Membership Information",     url: "https://bit.ly/4vVHtac",      featured: false },
+  { label: "Submit a Prayer Request",           url: "https://bit.ly/4vWbMgK",  featured: false },
+  { label: "Register to Volunteer",             url: "https://bit.ly/4wukDaw",       featured: false }
+];
+
+/* ======================= END OF EDITABLE SECTION ========================== */
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --blue: #0B4EA2; --blue-dark: #08376f; --blue-press: #062a56; --yellow: #FFD400; --ink: #201e1d; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fff; color: var(--ink);
+         font-family: Archivo, system-ui, -apple-system, sans-serif;
+         display: flex; justify-content: center;
+         padding: 0 clamp(16px, 5vw, 32px) clamp(48px, 10vw, 72px); }
+  .wrap { width: 100%; max-width: 560px; display: flex; flex-direction: column; }
+  header { display: flex; flex-direction: column; align-items: center;
+           gap: clamp(14px, 3.5vw, 20px);
+           padding: clamp(32px, 8vw, 56px) 0 clamp(20px, 5vw, 30px); }
+  header img { width: clamp(84px, 22vw, 120px); height: auto; display: block; }
+  h1 { margin: 0; text-align: center; font-weight: 800; color: var(--blue);
+       font-size: clamp(21px, 5.6vw, 28px); line-height: 1.15; letter-spacing: -0.02em;
+       text-wrap: balance; }
+  .rule-blue { height: 3px; background: var(--blue); }
+  .rule-yellow { height: 3px; background: var(--yellow); }
+  .intro { margin: 0; color: #5c5856; letter-spacing: 0.01em; line-height: 1.5;
+           font-size: clamp(14px, 3.8vw, 16px);
+           padding: clamp(20px, 5vw, 28px) 0 clamp(16px, 4vw, 22px); }
+  a.link { display: flex; align-items: center; gap: 16px;
+           min-height: clamp(68px, 17vw, 80px);
+           margin: 0 0 clamp(10px, 2.5vw, 14px);
+           padding: clamp(14px, 4vw, 18px) clamp(16px, 4.5vw, 20px);
+           background: var(--blue); color: #fff; text-decoration: none; border: 0;
+           border-radius: 0; transition: background .15s ease; }
+  a.link:hover { background: var(--blue-dark); }
+  a.link:active { background: var(--blue-press); }
+  a.link:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+  a.link.featured { border-left: 10px solid var(--yellow); padding-left: 0; }
+  a.link .body { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+  a.link.featured .body { padding-left: clamp(16px, 4.5vw, 20px); }
+  .tag { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+         font-weight: 700; color: var(--yellow); }
+  .label { font-size: clamp(17px, 4.6vw, 20px); line-height: 1.25;
+           font-weight: 700; letter-spacing: -0.01em; }
+  .arrow { flex: none; opacity: .9; }
+  .divider { height: 2px; background: var(--ink); opacity: .15; margin: 34px 0 0; }
+  footer { display: flex; flex-direction: column; gap: 6px; padding: 20px 0 0;
+           font-size: 12px; line-height: 1.5; color: #8a8583; letter-spacing: 0.02em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="logo.png" alt="">
+    <h1 id="churchName"></h1>
+  </header>
+  <div class="rule-blue"></div>
+  <div class="rule-yellow"></div>
+  <p class="intro" id="intro"></p>
+  <nav id="links"></nav>
+  <div class="divider"></div>
+  <footer>
+    <span id="footerName"></span>
+    <span id="footerHelp"></span>
+  </footer>
+</div>
+
+<script>
+  document.title = CHURCH_NAME + " — Forms";
+  document.getElementById('churchName').textContent = CHURCH_NAME;
+  document.getElementById('intro').textContent = INTRO_TEXT;
+  document.getElementById('footerName').textContent = CHURCH_NAME;
+  document.getElementById('footerHelp').textContent = FOOTER_TEXT;
+
+  const ARROW = '<svg class="arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  const ordered = [...LINKS.filter(l => l.featured), ...LINKS.filter(l => !l.featured)];
+
+  document.getElementById('links').innerHTML = ordered.map(l => `
+    <a class="link${l.featured ? ' featured' : ''}" href="${l.url}" target="_blank" rel="noopener">
+      <span class="body">
+        ${l.featured ? '<span class="tag">New</span>' : ''}
+        <span class="label">${l.label}</span>
+      </span>${ARROW}
+    </a>`).join('');
+</script>
+</body>
+</html>
