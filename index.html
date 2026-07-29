@@ -21,15 +21,15 @@
    Save the file and refresh the page to see your changes.
    ========================================================================== */
 
-const CHURCH_NAME = "PIWC Edmonton North Canada";
+const CHURCH_NAME = "PIWC Edmonton";
 const INTRO_TEXT  = "Tap a form below to get started.";
 const FOOTER_TEXT = "Need help? Ask an usher.";
 
 const LINKS = [
-  { label: "Make a Capital Project Commitment", url: "https://bit.ly/44QvAHs", featured: false },
-  { label: "Update Membership Information",     url: "https://bit.ly/4vVHtac",      featured: false },
-  { label: "Submit a Prayer Request",           url: "https://bit.ly/4vWbMgK",  featured: false },
-  { label: "Register to Volunteer",             url: "https://bit.ly/4wukDaw",       featured: false }
+  { label: "Make a Capital Project Commitment", url: "https://docs.google.com/forms/d/e/1FAIpQLSewBl_Gql48jlXIHHZGQcutlFp0sxaIg2Kkh5Rvk6RTEhk2dA/viewform", featured: false },
+  { label: "Update Membership Information",     url: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=U3snzopfN0yOgyZwUxVAyoKHACZLQKRDrRCG5bq1PYBUMzlVWjROVU5HM0RYTlNTSUZKUzgzRzM2MS4u&origin=QRCode&route=shorturl", featured: false },
+  { label: "Submit a Prayer Request",           url: "https://forms.cloud.microsoft/pages/responsepage.aspx?id=U3snzopfN0yOgyZwUxVAyoKHACZLQKRDrRCG5bq1PYBUQTdFRkZPRElKVFpHUjVBQ1cxN0pKRjlDQy4u&origin=QRCode&route=shorturl", featured: false },
+  { label: "Register to Volunteer",             url: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=U3snzopfN0yOgyZwUxVAyoKHACZLQKRDrRCG5bq1PYBUQlA5TTFKNDNWMlVKU0tJUUlYMFlYREVBQi4u&origin=QRCode", featured: false }
 ];
 
 /* ======================= END OF EDITABLE SECTION ========================== */
@@ -39,7 +39,7 @@ const LINKS = [
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-  :root { --blue: #0B4EA2; --blue-dark: #08376f; --blue-press: #062a56; --yellow: #FFD400; --ink: #201e1d; }
+  :root { --blue: #094B7D; --blue-dark: #073A61; --blue-press: #052C4A; --red: #ED1C2E; --ink: #172633; }
   * { box-sizing: border-box; }
   body { margin: 0; background: #fff; color: var(--ink);
          font-family: Archivo, system-ui, -apple-system, sans-serif;
@@ -49,12 +49,15 @@ const LINKS = [
   header { display: flex; flex-direction: column; align-items: center;
            gap: clamp(14px, 3.5vw, 20px);
            padding: clamp(32px, 8vw, 56px) 0 clamp(20px, 5vw, 30px); }
-  header img { width: clamp(84px, 22vw, 120px); height: auto; display: block; }
+  .logo-frame { position: relative; overflow: hidden; width: clamp(260px, 70vw, 380px);
+                aspect-ratio: 1274 / 561; }
+  .logo-frame img { position: absolute; width: 160.75%; height: auto; display: block;
+                    left: -29.75%; top: -106.42%; }
   h1 { margin: 0; text-align: center; font-weight: 800; color: var(--blue);
        font-size: clamp(21px, 5.6vw, 28px); line-height: 1.15; letter-spacing: -0.02em;
        text-wrap: balance; }
   .rule-blue { height: 3px; background: var(--blue); }
-  .rule-yellow { height: 3px; background: var(--yellow); }
+  .rule-red { height: 3px; background: var(--red); }
   .intro { margin: 0; color: #5c5856; letter-spacing: 0.01em; line-height: 1.5;
            font-size: clamp(14px, 3.8vw, 16px);
            padding: clamp(20px, 5vw, 28px) 0 clamp(16px, 4vw, 22px); }
@@ -66,12 +69,12 @@ const LINKS = [
            border-radius: 0; transition: background .15s ease; }
   a.link:hover { background: var(--blue-dark); }
   a.link:active { background: var(--blue-press); }
-  a.link:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
-  a.link.featured { border-left: 10px solid var(--yellow); padding-left: 0; }
+  a.link:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+  a.link.featured { border-left: 10px solid var(--red); padding-left: 0; }
   a.link .body { flex: 1; display: flex; flex-direction: column; gap: 5px; }
   a.link.featured .body { padding-left: clamp(16px, 4.5vw, 20px); }
   .tag { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-         font-weight: 700; color: var(--yellow); }
+         font-weight: 700; color: #fff; }
   .label { font-size: clamp(17px, 4.6vw, 20px); line-height: 1.25;
            font-weight: 700; letter-spacing: -0.01em; }
   .arrow { flex: none; opacity: .9; }
@@ -83,11 +86,13 @@ const LINKS = [
 <body>
 <div class="wrap">
   <header>
-    <img src="logo.png" alt="">
+    <div class="logo-frame">
+      <img src="logo.png" alt="PIWC Edmonton">
+    </div>
     <h1 id="churchName"></h1>
   </header>
   <div class="rule-blue"></div>
-  <div class="rule-yellow"></div>
+  <div class="rule-red"></div>
   <p class="intro" id="intro"></p>
   <nav id="links"></nav>
   <div class="divider"></div>
