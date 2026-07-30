@@ -45,15 +45,13 @@ const LINKS = [
     --blue-dark: #08477F;
     --blue-press: #063660;
     --gold: #F2AD2E;
-    --ink: #F4F7FA;
-    --muted: #AAB4C0;
-    --surface: #141A22;
-    --page: #0B0E13;
+    --ink: #172633;
+    --muted: #66727E;
+    --surface: #F4F7FA;
+    --page: #FFFFFF;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background:
-         radial-gradient(circle at 50% 0, rgba(11, 92, 168, .16), transparent 34rem),
-         var(--page); color: var(--ink);
+  body { margin: 0; background: var(--page); color: var(--ink);
          font-family: Archivo, system-ui, -apple-system, sans-serif;
          display: flex; justify-content: center;
          padding: 0 clamp(16px, 5vw, 32px) clamp(48px, 10vw, 72px); }
@@ -61,11 +59,9 @@ const LINKS = [
   header { display: flex; flex-direction: column; align-items: center;
            gap: clamp(14px, 3.5vw, 20px);
            padding: clamp(32px, 8vw, 56px) 0 clamp(20px, 5vw, 30px); }
-  .logo-frame { position: relative; overflow: hidden; width: clamp(260px, 70vw, 380px);
-                aspect-ratio: 1274 / 561; }
-  .logo-frame img { position: absolute; width: 160.75%; height: auto; display: block;
-                    left: -29.75%; top: -106.42%; }
-  h1 { margin: 0; text-align: center; font-weight: 800; color: var(--ink);
+  .logo-frame { width: clamp(240px, 65vw, 330px); }
+  .logo-frame img { width: 100%; height: auto; display: block; }
+  h1 { margin: 0; text-align: center; font-weight: 800; color: var(--blue-dark);
        font-size: clamp(21px, 5.6vw, 28px); line-height: 1.15; letter-spacing: -0.02em;
        text-wrap: balance; }
   .rule-blue { height: 3px; background: var(--blue); }
