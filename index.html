@@ -49,10 +49,10 @@ const LINKS = [
   header { display: flex; flex-direction: column; align-items: center;
            gap: clamp(14px, 3.5vw, 20px);
            padding: clamp(32px, 8vw, 56px) 0 clamp(20px, 5vw, 30px); }
-  .logo-frame { position: relative; overflow: hidden; width: clamp(260px, 70vw, 380px);
-                aspect-ratio: 1274 / 561; }
-  .logo-frame img { position: absolute; width: 160.75%; height: auto; display: block;
-                    left: -29.75%; top: -106.42%; }
+  .logo-frame { position: relative; overflow: hidden; width: min(100%, 380px);
+                aspect-ratio: 896 / 426; }
+  .logo-frame img { position: absolute; width: 150.11%; max-width: none;
+                    height: auto; display: block; left: -24.55%; top: -85.22%; }
   h1 { margin: 0; text-align: center; font-weight: 800; color: var(--blue);
        font-size: clamp(21px, 5.6vw, 28px); line-height: 1.15; letter-spacing: -0.02em;
        text-wrap: balance; }
@@ -81,6 +81,9 @@ const LINKS = [
   .divider { height: 2px; background: var(--ink); opacity: .15; margin: 34px 0 0; }
   footer { display: flex; flex-direction: column; gap: 6px; padding: 20px 0 0;
            font-size: 12px; line-height: 1.5; color: #8a8583; letter-spacing: 0.02em; }
+  @media (max-width: 420px) {
+    header { padding-top: 28px; }
+  }
 </style>
 </head>
 <body>
